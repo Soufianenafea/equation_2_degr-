@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soufons Page</title>
+</head>
+<body>
+    <label>a</label><br>
+    <input type="number" id="a" class="input1" placeholder="a"/><br>
+    
+    <label>b</label><br>
+    <input type="number" id="b" class="input1" placeholder="b"/><br>
+    
+    <label>c</label><br>
+    <input type="number" id="c" class="input1" placeholder="c"/><br>
+    
+    <button id="button" class="button">Calc</button>
+    <p id="sf" class="sf"></p>
+
+    <script>
+        const button = document.getElementById("button");
+        const sf = document.getElementById("sf");
+
+        button.addEventListener("click", function () {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            const c = parseFloat(document.getElementById("c").value);
+
+            const delta = (b * b) - (4 * a * c);
+
+            if (delta > 0) {
+                const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                sf.textContent = `Les solutions sont x1 = ${x1}, x2 = ${x2}`;
+            } else if (delta === 0) {
+                const x0 = -b / (2 * a);
+                sf.textContent = `La solution est x = ${x0}`;
+            } else {
+                sf.textContent = "Pas de solution réelle";
+            }
+        });
+    </script>
+</body>
+      </html>
